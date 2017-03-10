@@ -21,7 +21,6 @@ export default class Graph extends React.Component {
         super(props);
     }
 
-
     componentDidMount() {
         let dataProps = this.props.props;
         let method = dataProps.method;
