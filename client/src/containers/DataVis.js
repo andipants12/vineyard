@@ -71,47 +71,49 @@ export default class DataVis extends React.Component {
     <Segment style={ { height: '87%', margin: '0 auto' } }>
     <div>
       <Form onSubmit={ this.handleSubmit.bind(this) }>
-        <Form.Dropdown selection
-          label='Method'
-          placeholder='Method'
-          onChange={ this.handleDropdownChange.bind(this, 'method') }
-          options={ genDropdownOptionsOgs(
-            methods.map(item => item[1])
-          ) }
-        />
+        <Form.Group widths='equal'>
+          <Form.Dropdown selection
+            label='Method'
+            placeholder='Method'
+            onChange={ this.handleDropdownChange.bind(this, 'method') }
+            options={ genDropdownOptionsOgs(
+              methods.map(item => item[1])
+            ) }
+          />
 
-        <Form.Dropdown selection
-          label='Vineyard'
-          placeholder='Vineyard'
-          onChange={ this.handleDropdownChange.bind(this, 'vineyard') }
-          options={ genDropdownOptionsOgs(
-            vineyardData.map(item => item.name)
-          ) }
-        />
+          <Form.Dropdown selection
+            label='Vineyard'
+            placeholder='Vineyard'
+            onChange={ this.handleDropdownChange.bind(this, 'vineyard') }
+            options={ genDropdownOptionsOgs(
+              vineyardData.map(item => item.name)
+            ) }
+          />
 
-        <Form.Dropdown selection
-          label='Block'
-          placeholder='Block'
-          onChange={ this.handleDropdownChange.bind(this, 'block') }
-       	  options={ genDropdownOptionsOgs(
-             blocks.map(item => item.name)
-          ) }
-        />
+          <Form.Dropdown selection
+            label='Block'
+            placeholder='Block'
+            onChange={ this.handleDropdownChange.bind(this, 'block') }
+         	  options={ genDropdownOptionsOgs(
+               blocks.map(item => item.name)
+            ) }
+          />
 
-        <Form.Dropdown selection
-          label='Row'
-          placeholder='Row'
-          onChange={ this.handleDropdownChange.bind(this, 'row') }
-          options={ genDropdownOptionsOgs(
-            rows.map(item => item.number)
-          ) }
-        />
+          <Form.Dropdown selection
+            label='Row'
+            placeholder='Row'
+            onChange={ this.handleDropdownChange.bind(this, 'row') }
+            options={ genDropdownOptionsOgs(
+              rows.map(item => item.number)
+            ) }
+          />
+        </Form.Group>
 
-        <Form.Button primary fluid type='submit'>Get Data</Form.Button>
-      </Form>
-
+      <div className='master-container'>
       {this.props.dataVis.results.length > 0 ? (<Graph props={this.props.dataVis}/>) : ''}
-
+      </div>
+          <Form.Button primary fluid type='submit'>Get Data</Form.Button>
+      </Form>
     </div>
     </Segment>
 
