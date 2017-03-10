@@ -2,6 +2,10 @@ body {
   background-color: rgba(249, 246, 233, 0.9);
 }
 
+.dataVis {
+  display: inline-block;
+}
+
 .leaflet-container {
   height: 100% !important;
   position: relative;
@@ -9,6 +13,10 @@ body {
 
 #highcharts-container {
   height: 70vh;
+}
+
+.master-container {
+  height: 72vh;
 }
 
 .map_buttons {
