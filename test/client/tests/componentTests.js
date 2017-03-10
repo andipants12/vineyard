@@ -2,7 +2,7 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import { expect } from 'chai';
 import { ControlLabel, FormControl } from 'react-bootstrap';
-import { Form, Segment } from 'semantic-ui-react';
+import { Form, Segment, Input } from 'semantic-ui-react';
 import MainNavBar from '../../../client/src/components/MainNavBar';
 import NameBirthdateInput from '../../../client/src/components/NameBirthdateInput';
 import NoteForm from '../../../client/src/components/Form';
@@ -10,19 +10,8 @@ import NoteFormInput from '../../../client/src/components/NoteFormInput';
 
 
 describe('Components', () => {
-  describe('<MainNavBar />', () => {
-    it('should have icon and children as props', () => {
-      const wrapper = shallow(<MainNavBar />);   
-      var props = wrapper.props();
-      console.log('what are these props', Array.isArray(Object.keys(props)));
-      
-      expect(Object.keys(props).join(' ')).to.equal('icon children');
-      //expect(Object.keys(props).length).to.equal(1);
-      //expect(Object.keys(props)[0]).to.equal('children');
-    });
-  });
   
-  describe('<NameBirthdateInput />', () => {
+  describe('NameBirthdateInput', () => {
     it('should render 4 Form.Input', () => {
       const wrapper = 
         shallow(<NameBirthdateInput setItem={ () => {} } signup={ {
@@ -114,13 +103,12 @@ describe('Components', () => {
   
   });
 
-  describe('<NoteFormInput />', () => {
+  describe('NoteFormInput', () => {
 
-    it('should render 1 Segment element', () => {
-      const wrapper = mount(<NoteFormInput title='Note Title' field='title'/>);
-
-      expect(wrapper.find(Segment)).to.have.length(1);
-          
+    it('should render 1 input element', () => {
+      const wrapper = mount(<NoteFormInput title='Note Title' field='title'/>);      
+      expect(wrapper.find(Input)).to.have.length(1);
+            
     });
 
     it('should have classname and children as props', () => {
@@ -131,7 +119,7 @@ describe('Components', () => {
   
   });
 
-  describe('<Form />', () => {
+  describe('Form', () => {
     
     it('should render 2 instances of <NoteFormInput>', () => {
       const wrapper = shallow(<NoteForm note={{
